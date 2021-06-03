@@ -1,40 +1,31 @@
-// import "./styles.css";
-// import Earth from "./components/Earth";
-// import NavbarApp from "./components/navbar/NavbarApp";
-// function App() {
-//   return (
-//     <div className="App">
-//       <Earth />
-//       <NavbarApp />
-//     </div>
-//   );
-// }
-
-// import "./App.css";
 import React from "react";
-import NavBar from "./components/navbar/NavBar";
+import { Navigateapp } from "./Components/Navigate/Navigateapp";
+import { Navbar } from "./Components/Navbar/Navbar";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./components/Pages/Home";
-import About from "./components/Pages/About";
-import Blog from "./components/Pages/Blog";
-import Contact from "./components/Pages/Contact";
-// import Navtriangle from "./components//navbar/Navtriangle";
+import { Home } from "./Components/Pages/Home";
+import { About } from "./Components/Pages/About";
+import { Blog } from "./Components/Pages/Blog";
+import { Contact } from "./Components/Pages/Contact";
+import "./styles.css";
+
 const App = () => {
   return (
     <div className="navrender pages">
       <Router>
-        <NavBar />
+        <Navbar />
+        {/* <Navtriangle /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/navigate" component={Navigateapp} />
+          {/* <Route exact path="/navtri" component={Navtriangle} /> */}
         </Switch>
       </Router>
     </div>
   );
 };
-
 export default App;
