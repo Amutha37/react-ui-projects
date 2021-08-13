@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "id": "001",
+      "name": "Home",
+      "route": "/",
+      "component": "Home"
+    },
+
+    {
+      "id": "002",
+      "name": "Texthover",
+      "route": "/",
+      "component": "About"
+    },
+    {
+      "id": "003",
+      "name": "Blog",
+      "route": "/blog",
+      "component": "Contact"
+    },
+    {
+      "id": "004",
+      "name": "Contact",
+      "route": "/contact",
+      "component": "Navigateapp"
+    }
+  ]
+}

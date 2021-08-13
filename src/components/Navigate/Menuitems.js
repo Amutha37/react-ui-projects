@@ -23,6 +23,12 @@ export const Menuitems = [
     // url: "#",
     cName: "nav-link",
   },
+  {
+    title: "Menuapp",
+    to: "/menuapp",
+    // url: "#",
+    cName: "Menuapp",
+  },
   //   {
   //     title: "Sign up",
   //     url: "#",

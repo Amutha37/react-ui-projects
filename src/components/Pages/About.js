@@ -5,9 +5,9 @@ export const About = () => {
   let emailRef = useRef(null);
   const [data, setData] = useState([
     {
-      name: "Amutha",
-      email: "tamamutha@gmail.com",
-      address: "44 faads",
+      name: "",
+      email: "",
+      address: "",
     },
   ]);
   // console.log(data);

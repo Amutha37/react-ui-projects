@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigateapp } from "./Components/Navigate/Navigateapp";
 import { Navbar } from "./Components/Navbar/Navbar";
+import { Menuapp } from "./Components/Navigate/Menubar/Menuapp";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/navigate" component={Navigateapp} />
+          <Route exact path="/menuapp" component={Menuapp} />
           {/* <Route exact path="/navtri" component={Navtriangle} /> */}
         </Switch>
       </Router>
