@@ -17,9 +17,10 @@ const Fullimageview = (props) => {
     <>
       {slides.NatureImages.map((item, index) => (
         <div
+          className="mySlides"
           style={status[index] ? { display: "block" } : { display: "none" }}
           key={index}
-          className="mySlides"
+
           // style={hideImage}
 
           // style={`sts ? ${showImage} : ${hideImage}`}

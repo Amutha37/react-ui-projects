@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Thumbnailimages from "./components/carousel/Thumbnailimages";
 import Fullimageview from "./components/carousel/Fullimageview";
@@ -13,12 +13,10 @@ function App() {
   const [status, setStatus] = useState(
     new Array(NatureImages.NatureImages.length).fill(false)
   );
-  status[0] = true;
-  // useEffect(() => {
-  //   const copy = [...status];
-  //   copy[imageIndex - 1] = true;
-  //   setStatus(copy);
-  // }, []);
+
+  useEffect(() => {
+    status[0] = true;
+  }, []);
 
   // Next/previous controls
   function plusSlides(event) {
@@ -56,19 +54,22 @@ function App() {
   // boolean status update
   const statusUpdate = (n) => {
     const copy = [...status];
-    console.log("n", typeof n, "oldIndex", typeof oldIndex);
+
     if (oldIndex !== n) {
       console.log("before", n, oldIndex);
-      copy[oldIndex] = false;
-      setStatus(copy);
-      console.log("new status", status[oldIndex]);
+      copy[oldIndex - 1] = !copy[oldIndex - 1];
+      setStatus(...copy);
+      console.log(copy[oldIndex - 1], status);
+      // setStatus(copy);
+      // setStatus(copy);
+
       setOldIndex(n);
       setImageIndex(n);
       // statusUpdate();
-      copy[imageIndex - 1] = true;
+      copy[n - 1] = !copy[n - 1];
       setStatus(copy);
-      console.log(status, imageIndex);
     }
+    console.log("new status", status);
     console.log("after", imageIndex, oldIndex);
     //   return (
     //     <Fullimageview

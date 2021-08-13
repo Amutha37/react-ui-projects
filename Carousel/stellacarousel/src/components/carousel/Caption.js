@@ -4,7 +4,7 @@ const Caption = ({ slides, slideIndex }) => {
   console.log(slides, slideIndex);
   return (
     <>
-      {/* <!-- Image text -->  // */}
+      {/* <!-- Image text --> */}
       <div className="caption-container">
         <p id="caption">{slides.NatureImages[slideIndex - 1].name} </p>
       </div>

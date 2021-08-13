@@ -1,19 +1,31 @@
 * {
   box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 /* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
+  margin-top: 5rem;
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;
+  text-align: center;
+  background-color: rgba(242, 246, 241, 0.975);
 }
 .mySlides img {
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  width: auto;
+
+  height: 500px;
 }
+
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
   cursor: pointer;
