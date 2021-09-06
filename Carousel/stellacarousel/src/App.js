@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Thumbnailimages from "./components/carousel/Thumbnailimages";
 import Fullimageview from "./components/carousel/Fullimageview";
@@ -7,38 +7,33 @@ import NatureImages from "./components/Images/Images";
 import "./components/carousel/carousel.css";
 
 function App() {
-  //  const [slides, setSlides] = useState(NatureImages);
-  const [oldIndex, setOldIndex] = useState(1);
   const [imageIndex, setImageIndex] = useState(1);
   const [status, setStatus] = useState(
-    new Array(NatureImages.NatureImages.length).fill(false)
+    new Array(NatureImages.NatureImages.length)
+      .fill()
+      .map((item, idx) => idx === 0)
   );
-
-  useEffect(() => {
-    status[0] = true;
-  }, []);
 
   // Next/previous controls
   function plusSlides(event) {
     let ind = Number(event.target.value);
     let indd = imageIndex;
-    setImageIndex((indd += ind));
-    console.log("ind", ind, "indd", indd);
+    console.log(ind, indd);
     let newind = (indd += ind);
+
     let imgarrlength = NatureImages.NatureImages.length;
 
-    if (ind < 1) {
-      console.log(imgarrlength);
-      setImageIndex(imgarrlength);
-    } else {
-      if (ind > NatureImages.NatureImages.length) {
-        setImageIndex(1);
-      } else {
-        statusUpdate(newind);
-      }
+    console.log(newind, imgarrlength);
+    let nex = newind;
+    if (newind < 1) {
+      nex = NatureImages.NatureImages.length;
+    }
+    if (newind > NatureImages.NatureImages.length) {
+      nex = 1;
     }
 
-    console.log("newind", newind, "imageIndex", imageIndex);
+    setImageIndex(nex);
+    statusUpdate(nex);
   }
 
   // if (n > slides.length) {imageIndex = 1}
@@ -47,6 +42,7 @@ function App() {
   // Thumbnail image controls
   const currentSlide = (e) => {
     const num = Number(e.target.id);
+
     console.log("num", num);
     statusUpdate(num);
   };
@@ -54,33 +50,12 @@ function App() {
   // boolean status update
   const statusUpdate = (n) => {
     const copy = [...status];
+    copy.fill(false);
 
-    if (oldIndex !== n) {
-      console.log("before", n, oldIndex);
-      copy[oldIndex - 1] = !copy[oldIndex - 1];
-      setStatus(...copy);
-      console.log(copy[oldIndex - 1], status);
-      // setStatus(copy);
-      // setStatus(copy);
-
-      setOldIndex(n);
-      setImageIndex(n);
-      // statusUpdate();
-      copy[n - 1] = !copy[n - 1];
-      setStatus(copy);
-    }
-    console.log("new status", status);
-    console.log("after", imageIndex, oldIndex);
-    //   return (
-    //     <Fullimageview
-    //       plusSlides={plusSlides}
-    //       slideIndex={imageIndex}
-    //       slides={NatureImages}
-    //       status={status}
-    //   />
-    // );
+    setImageIndex(n);
+    copy[n - 1] = !copy[n - 1];
+    setStatus(copy);
   };
-  console.log(imageIndex);
 
   return (
     //  <!-- Container for the image gallery -->

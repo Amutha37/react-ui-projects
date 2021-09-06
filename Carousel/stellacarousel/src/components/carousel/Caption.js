@@ -1,7 +1,6 @@
 import React from "react";
 
 const Caption = ({ slides, slideIndex }) => {
-  console.log(slides, slideIndex);
   return (
     <>
       {/* <!-- Image text --> */}

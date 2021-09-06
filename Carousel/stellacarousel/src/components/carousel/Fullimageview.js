@@ -11,7 +11,7 @@ const Fullimageview = (props) => {
   // };
   const { status, slides, slideIndex, plusSlides } = props;
 
-  console.log(props);
+  // console.log(props);
   // console.log(props);
   return (
     <>
